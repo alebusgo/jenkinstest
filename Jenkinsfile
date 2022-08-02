@@ -4,14 +4,20 @@ pipeline {
     
        
     stages {
-        stage('Build') {
+        stage('Executing Gradle') {
             steps {
-                echo 'Building the application ...'
+                echo 'Executing gladle ...'
                 withGradle(){
-                    sh 'gradlew -v'
+                    sh './gradlew -v'
                 }
-                sh 'gradle clean build -x test'
             }
+        }
+        
+        stage("Build") {
+             steps {
+                echo 'Building the application ...'
+                sh 'gradle clean build -x test '
+             }
         }
 
         stage("test1") {
