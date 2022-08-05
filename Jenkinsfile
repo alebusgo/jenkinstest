@@ -15,7 +15,7 @@ pipeline {
         stage("test1") {
              steps {
                 echo 'excecuting automated test1'
-                sh 'gradle clean test aggregate'
+                sh 'gradlew clean test aggregate'
 
              }
         }
