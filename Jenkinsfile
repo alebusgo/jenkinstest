@@ -27,7 +27,7 @@ pipeline {
             steps {
                 echo 'excecuting automated test2'
                 withGradle() {
-                    sh 'gradle clean test -Denvironment=qa aggregate'
+                    sh './gradlew clean test -Denvironment=qa aggregate'
                 }
 
 
@@ -38,7 +38,7 @@ pipeline {
             steps {
                 echo 'excecuting automated test3'
                 withGradle() {
-                    sh 'gradle clean test -Denvironment=prov aggregate'
+                    sh './gradlew clean test -Denvironment=prov aggregate'
                 }
 
             }
