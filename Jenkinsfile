@@ -26,7 +26,10 @@ pipeline {
         stage("test2") {
             steps {
                 echo 'excecuting automated test2'
-                sh 'gradle clean test -Denvironment=qa aggregate'
+                withGradle() {
+                    sh 'gradle clean test -Denvironment=qa aggregate'
+                }
+
 
             }
         }
@@ -34,7 +37,9 @@ pipeline {
         stage("test3") {
             steps {
                 echo 'excecuting automated test3'
-                sh 'gradle clean test -Denvironment=prov aggregate'
+                withGradle() {
+                    sh 'gradle clean test -Denvironment=prov aggregate'
+                }
 
             }
 
