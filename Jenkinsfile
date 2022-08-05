@@ -1,15 +1,14 @@
 pipeline {
 
     agent any
-    tools {
-        gradle '7.4.2'
-    }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building the application ...'
-                sh 'gradle clean build -x test'
+                withGradle() {
+                    sh 'gradlew clean build -x test'
+                }
             }
         }
 
